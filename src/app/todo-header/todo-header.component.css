@@ -1,0 +1,9 @@
+mat-toolbar {
+    justify-content: center;
+    font-family: cursive;
+    font-size: 32px;
+}
+span {
+    padding: 2px;
+    border-bottom: 2px dashed white;
+}

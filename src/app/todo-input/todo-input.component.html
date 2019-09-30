@@ -1,0 +1,8 @@
+<div class="todo-input">
+    <mat-form-field id="input">
+        <input matInput placeholder="Enter a todo item" (keyup.enter)="addItem(item.value); item.value=''" #item>
+        <button mat-icon-button matSuffix (click)="addItem(item.value); item.value=''">
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-form-field>
+</div>
