@@ -1,5 +1,10 @@
 #todo-body {
-  height: 70vh;
+  height: 69vh;
+  overflow: scroll;
+}
+
+mat-icon {
+  color: palegreen;
 }
 
 .list-container {

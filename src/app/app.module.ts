@@ -16,7 +16,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TodoInputComponent } from './todo-input/todo-input.component';
-import { from } from 'rxjs';
+import { MatRippleModule } from '@angular/material/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { from } from 'rxjs';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    DragDropModule
+    DragDropModule,
+    MatRippleModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

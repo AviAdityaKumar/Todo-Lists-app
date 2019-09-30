@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { TodoServiceService } from '../todo-service.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-todo-body',
@@ -9,17 +10,28 @@ import { TodoServiceService } from '../todo-service.service';
 })
 export class TodoBodyComponent implements OnInit {
 
-  constructor(private todoService: TodoServiceService) { }
+  constructor(private todoService: TodoServiceService, private _snackBar: MatSnackBar) { }
   todo = this.todoService.todoList;
-  // todo = ['lol', 'wow', 'top'];
-  inProg = [];
-  done = [];
+  inProg = this.todoService.inProg;
+  done = this.todoService.done;
 
   ngOnInit() {
   }
 
-  add() {
-    this.todo.push();
+  openSnackBar(message: string) {
+    this._snackBar.open(message + " deleted!", "Dissmis", {duration: 2000,});
+  }
+
+  deleteTodoItem(index){
+    this.todoService.deleteTodo(index);
+  }
+
+  deleteProgItem(index){
+    this.todoService.deleteProg(index);
+  }
+
+  deleteDoneItem(index){
+    this.todoService.deleteDone(index);
   }
 
   drop(event: CdkDragDrop<string[]>) {
