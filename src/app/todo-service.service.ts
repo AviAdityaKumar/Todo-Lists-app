@@ -12,7 +12,6 @@ export class TodoServiceService {
 
   addTodo(newItem: string) {
     let x = this.todoList.length;
-    if (x == 7) return;
     const newTodo: Todo = {
       id: x,
       todo: newItem

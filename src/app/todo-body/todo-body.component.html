@@ -1,34 +1,46 @@
 <div id="todo-body" cdkDropListGroup>
     <div class="list-container">
-        <h3>To-do</h3>
+        <div class="head">
+            <h3>To-do</h3>
+            <mat-icon>vertical_align_bottom</mat-icon>
+        </div>
         <div cdkDropList
             [cdkDropListData]="todo"
             class="list" 
             (cdkDropListDropped)="drop($event)">
-                <div class="list-box" matRipple *ngFor="let item of todo;let delTodo=index" (dblclick)="openSnackBar(todo[delTodo]['todo']); deleteTodoItem(delTodo);" cdkDrag> 
-                    {{item['todo']}}
+                <div class="list-box" matRipple *ngFor="let item of todo;let delTodo=index" 
+                    (dblclick)="openSnackBar(todo[delTodo]['todo']); deleteTodoItem(delTodo);" cdkDrag> 
+                        {{item['todo']}}
                 </div>
         </div>
     </div>
     <div class="list-container">
-        <h3>In Progress</h3>
+        <div class="head">
+            <h3>In Progress</h3>
+            <mat-icon>refresh</mat-icon>
+        </div>
         <div cdkDropList
             [cdkDropListData]="inProg"
             class="list" 
             (cdkDropListDropped)="drop($event)">
-                <div class="list-box" matRipple *ngFor="let item of inProg;let delProg=index" (dblclick)="openSnackBar(inProg[delProg]['todo']); deleteProgItem(delProg)" cdkDrag> 
-                    {{item['todo']}}
+                <div class="list-box" matRipple *ngFor="let item of inProg;let delProg=index" 
+                    (dblclick)="openSnackBar(inProg[delProg]['todo']); deleteProgItem(delProg)" cdkDrag> 
+                        {{item['todo']}}
                 </div>
         </div>
     </div>
     <div class="list-container">
-        <h3>Done</h3>
+        <div class="head">
+            <h3>Done</h3>
+            <mat-icon>done_all</mat-icon>
+        </div>
         <div cdkDropList
             [cdkDropListData]="done"
             class="list" 
             (cdkDropListDropped)="drop($event)">
-                <div class="list-box" style="justify-content: space-between" *ngFor="let item of done; let delDone=index" (dblclick)="openSnackBar(done[delDone]['todo']); deleteDoneItem(delDone)" cdkDrag> 
-                    {{item['todo']}} 
+                <div class="list-box done" style="justify-content: space-between" *ngFor="let item of done; let delDone=index" 
+                    (dblclick)="openSnackBar(done[delDone]['todo']); deleteDoneItem(delDone)" cdkDrag> 
+                        {{item['todo']}} 
                     <mat-icon>done</mat-icon>
                 </div>
         </div>

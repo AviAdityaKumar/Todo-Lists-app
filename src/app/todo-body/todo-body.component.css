@@ -3,8 +3,22 @@
   overflow: scroll;
 }
 
-mat-icon {
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.head mat-icon {
+  margin-left: 8px;
+}
+
+.done {
+  margin-left: 8px;
+}
+.done mat-icon {
   color: palegreen;
+  margin-right: 8px;
 }
 
 .list-container {
@@ -14,6 +28,7 @@ mat-icon {
   margin: 0 25px 25px 50px;
   display: inline-block;
   vertical-align: top;
+  align-content: center;
 }
 
 .list {

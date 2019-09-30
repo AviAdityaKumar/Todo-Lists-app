@@ -1,7 +1,8 @@
 mat-toolbar {
     justify-content: center;
-    font-family: cursive;
+    font-family: fantasy;
     font-size: 32px;
+    padding: 10px 0 6px 0;
 }
 span {
     padding: 2px;
