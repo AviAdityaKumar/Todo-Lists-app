@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDragEnter, CdkDragExit } from '@angular/cdk/drag-drop';
 import { TodoServiceService } from '../todo-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -10,7 +10,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class TodoBodyComponent implements OnInit {
 
-  constructor(private todoService: TodoServiceService, private _snackBar: MatSnackBar) { }
+  constructor(private todoService: TodoServiceService, private snackBar: MatSnackBar) { }
+
+  isEmpty = {todo: true, inProg: true, done: true};
+
   todo = this.todoService.todoList;
   inProg = this.todoService.inProg;
   done = this.todoService.done;
@@ -18,19 +21,27 @@ export class TodoBodyComponent implements OnInit {
   ngOnInit() {
   }
 
-  openSnackBar(message: string) {
-    this._snackBar.open(message + " deleted!", "Dissmis", {duration: 2000,});
+  entered(event: CdkDragEnter<string[]>) {
+    this.isEmpty[event.container.id] = false;
   }
 
-  deleteTodoItem(index){
+  exited(event: CdkDragExit<string[]>) {
+    this.isEmpty[event.container.id] = true;
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message + ' deleted!', 'Dismiss', {duration: 2000});
+  }
+
+  deleteTodoItem(index: number) {
     this.todoService.deleteTodo(index);
   }
 
-  deleteProgItem(index){
+  deleteProgItem(index: number) {
     this.todoService.deleteProg(index);
   }
 
-  deleteDoneItem(index){
+  deleteDoneItem(index: number) {
     this.todoService.deleteDone(index);
   }
 

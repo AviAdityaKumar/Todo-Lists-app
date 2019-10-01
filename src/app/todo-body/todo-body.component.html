@@ -1,48 +1,66 @@
 <div id="todo-body" cdkDropListGroup>
-    <div class="list-container">
+    <div class="list-container" style="background-color: skyblue">
         <div class="head">
             <h3>To-do</h3>
             <mat-icon>vertical_align_bottom</mat-icon>
         </div>
-        <div cdkDropList
+        <div id="todo"
+            cdkDropList
             [cdkDropListData]="todo"
-            class="list" 
+            class="list"
             (cdkDropListDropped)="drop($event)">
-                <div class="list-box" matRipple *ngFor="let item of todo;let delTodo=index" 
-                    (dblclick)="openSnackBar(todo[delTodo]['todo']); deleteTodoItem(delTodo);" cdkDrag> 
+                <div class="list-box" matRipple *ngFor="let item of todo;let delTodo=index"
+                    (cdkDragEntered)="entered($event)"
+                    (cdkDragExited)="exited($event)"
+                    (dblclick)="openSnackBar(todo[delTodo]['todo']); deleteTodoItem(delTodo);" cdkDrag>
                         {{item['todo']}}
                 </div>
+                <ng-container *ngIf="isEmpty['todo'] && todo.length == 0">
+                   <span [style.opacity]="0.4">Empty</span>
+                </ng-container>
         </div>
     </div>
-    <div class="list-container">
+    <div class="list-container" style="background-color: lavender">
         <div class="head">
             <h3>In Progress</h3>
             <mat-icon>refresh</mat-icon>
         </div>
-        <div cdkDropList
+        <div id="inProg"
+            cdkDropList
             [cdkDropListData]="inProg"
-            class="list" 
+            class="list"
             (cdkDropListDropped)="drop($event)">
-                <div class="list-box" matRipple *ngFor="let item of inProg;let delProg=index" 
-                    (dblclick)="openSnackBar(inProg[delProg]['todo']); deleteProgItem(delProg)" cdkDrag> 
+                <div class="list-box" matRipple *ngFor="let item of inProg;let delProg=index"
+                    (cdkDragEntered)="entered($event)"
+                    (cdkDragExited)="exited($event)"
+                    (dblclick)="openSnackBar(inProg[delProg]['todo']); deleteProgItem(delProg)" cdkDrag>
                         {{item['todo']}}
                 </div>
+                <ng-container *ngIf="isEmpty['inProg'] && inProg.length == 0">
+                    <span [style.opacity]="0.4">Empty</span>
+                </ng-container>
         </div>
     </div>
-    <div class="list-container">
+    <div class="list-container" style="background-color: palegreen">
         <div class="head">
             <h3>Done</h3>
             <mat-icon>done_all</mat-icon>
         </div>
-        <div cdkDropList
+        <div id="done"
+            cdkDropList
             [cdkDropListData]="done"
-            class="list" 
+            class="list"
             (cdkDropListDropped)="drop($event)">
-                <div class="list-box done" style="justify-content: space-between" *ngFor="let item of done; let delDone=index" 
-                    (dblclick)="openSnackBar(done[delDone]['todo']); deleteDoneItem(delDone)" cdkDrag> 
-                        {{item['todo']}} 
+                <div class="list-box done" style="justify-content: space-between" *ngFor="let item of done; let delDone=index"
+                    (cdkDragEntered)="entered($event)"
+                    (cdkDragExited)="exited($event)"
+                    (dblclick)="openSnackBar(done[delDone]['todo']); deleteDoneItem(delDone)" cdkDrag>
+                        {{item['todo']}}
                     <mat-icon>done</mat-icon>
                 </div>
+                <ng-container *ngIf="isEmpty['done'] && done.length == 0">
+                    <span [style.opacity]="0.4">Empty</span>
+                </ng-container>
         </div>
     </div>
 </div>

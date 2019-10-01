@@ -1,5 +1,5 @@
 #todo-body {
-  height: 69vh;
+  height: 69%;
   overflow: scroll;
 }
 
@@ -25,10 +25,12 @@
   width: 400px;
   max-width: 100%;
   text-align: center;
-  margin: 0 25px 25px 50px;
+  margin: 0 25px 25px 35px;
+  padding: 0 8px 12px 8px;
   display: inline-block;
   vertical-align: top;
   align-content: center;
+  border-radius: 8px;
 }
 
 .list {
@@ -37,12 +39,15 @@
   background: white;
   border-radius: 4px;
   overflow: hidden;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .list-box {
   padding: 20px 10px;
   border-bottom: solid 1px #ccc;
+  border-radius: 8px;
   color: rgba(0, 0, 0, 0.87);
   display: flex;
   flex-direction: row;
