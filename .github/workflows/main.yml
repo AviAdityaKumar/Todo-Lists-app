@@ -40,7 +40,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: npm i and npm run build:ci
+      - name: npm i
+        run: npm i
+      - name: npm run tests
         run: |
-          npm i
-          npm run build:ci
+          ng test --no-watch --no-progress --browser-ChromeHeadlessCustom
+          ng e2e --protractor-config=e2e/protractor-ci.conf.js
