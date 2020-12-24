@@ -5,6 +5,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './todo-header.component.html',
   styleUrls: ['./todo-header.component.css']
 })
+
+@NgModule({
+   imports: [],
+   exports: [TodoHeaderComponent],
+   declarations: [TodoHeaderComponent],
+   providers: [],
+})
+
 export class TodoHeaderComponent implements OnInit {
 
   constructor() { }
