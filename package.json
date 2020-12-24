@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "clean": "rimraf ./dist",
-    "test": "ng test --watch=false --browsers=ChromeHeadlessCustom",
+    "test": "ng test --watch=false --progress=false --browsers=ChromeHeadlessCustom",
     "test:watch": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
