@@ -41,6 +41,15 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatRippleModule,
     MatSnackBarModule
   ],
+  exports: [
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatRippleModule,
+    MatSnackBarModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
